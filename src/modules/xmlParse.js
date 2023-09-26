@@ -6,7 +6,13 @@ const util = require('util');
 const xmlParsed = async function(value){
     let xml = fs.readFileSync(value, "utf8");
     let parsed = await parser.parseStringPromise(xml).then((result)=>{
-        console.log(result['ns2:NFSE']['ns2:Nfse'][0]['ns3:Competencia'][0]);
+        // fs.writeFile ("payload.json", JSON.stringify(result), "utf8", function(err) {
+        //     if (err) throw err;
+        //     console.log('complete');
+        //     }
+        // );
+        
+        //console.log(util.inspect(result, false, null, true));
         return result;
     });
     
