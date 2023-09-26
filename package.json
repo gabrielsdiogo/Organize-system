@@ -7,5 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Gabriel Diogo Consultoria em Tecnologia da informação LTDA",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "xml2js": "^0.6.2"
+  }
 }
