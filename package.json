@@ -9,6 +9,7 @@
   "author": "Gabriel Diogo Consultoria em Tecnologia da informação LTDA",
   "license": "ISC",
   "dependencies": {
+    "xlsx": "^0.18.5",
     "xml2js": "^0.6.2"
   }
 }
