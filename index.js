@@ -1,6 +1,6 @@
 const xmlToJSON = require("./src/modules/xmlParse");
 const resultJson = require("./src/modules/generateJson");
-
+//#fff8e0 - main background
 
 var caminhos = ["./xmls/2.9974196120374805E8.xml", "./xmls/4.002015354049304E7.xml", "./xmls/5.735043132634182E8.xml", "./xmls/6.9374913991875E8.xml"];
 
