@@ -9,7 +9,7 @@ const xmlParsed = async function(value){
         return result;
     });
     
-    resultJson(parsed);
+    return parsed;
 };
 
 module.exports = xmlParsed;
