@@ -1,16 +1,43 @@
 {
-  "name": "gd.organize",
+  "name": "Organize",
   "version": "1.0.0",
-  "description": "",
+  "description": "organize sysem",
   "main": "index.js",
+  "homepage": "./",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron-forge start",
+    "electron:package:win": "electron-builder -w -c.extraMetadata.main=index.js",
+    "electron:package:mac": "electron-builder -m -c.extraMetadata.main=index.js",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "author": "Gabriel Diogo Consultoria em Tecnologia da informação LTDA",
   "license": "ISC",
   "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
     "xlsx": "^0.18.5",
     "xlsx-populate": "^1.21.0",
     "xml2js": "^0.6.2"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.4.2",
+    "@electron-forge/maker-deb": "^6.4.2",
+    "@electron-forge/maker-rpm": "^6.4.2",
+    "@electron-forge/maker-squirrel": "^6.4.2",
+    "@electron-forge/maker-zip": "^6.4.2",
+    "@electron-forge/plugin-auto-unpack-natives": "^6.4.2",
+    "electron": "^26.2.4"
+  },
+  "build": {
+    "appId": "br.com.organize",
+    "productName": "Organize Reports",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "src/**/*"
+    ]
+  },
+  "directories": {
+    "buildResources": "public"
   }
 }

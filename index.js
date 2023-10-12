@@ -1,23 +1,23 @@
-const xmlToJSON = require("./src/modules/xmlParse");
-const resultJson = require("./src/modules/generateJson");
-//#fff8e0 - main background
+const {app, BrowserWindow} = require('electron')
 
-var caminhos = ["./xmls/2.9974196120374805E8.xml", "./xmls/4.002015354049304E7.xml", "./xmls/5.735043132634182E8.xml", "./xmls/6.9374913991875E8.xml"];
+let mainWindow;
 
-async function run() {
-  try {
-    
-    let dados = [];
-    for (let index = 0; index < caminhos.length; index++) {
-        const value = await xmlToJSON(caminhos[index]);
-        dados.push(value);
+app.on('ready', () =>{
+
+  mainWindow = new BrowserWindow({
+    width: 900,
+    height: 500,
+    autoHideMenuBar: true,
+    webPreferences:{
+      nodeIntegration: true,
+      contextIsolation: false
     }
+  });
 
-    resultJson(dados);
+  mainWindow.loadURL(`file://${__dirname}/index.html`)
 
-  } catch (err) {
-    console.log(err);
-  }
-}
+});
 
-run();
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') app.quit()
+})

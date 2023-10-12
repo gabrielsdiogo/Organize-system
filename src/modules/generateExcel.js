@@ -3,12 +3,15 @@ const XlsxPopulate = require("xlsx-populate");
 
 const excel = (value) => {
   try {
+    const today = new Date();
+    let arquivo = "Relatório-" + today.getDate() + "-" + today.getMonth() + "-" + today.getFullYear() + "-" + today.getHours() + "-" + today.getMinutes() + ".xlsx"
+
     const newBook = XLSX.utils.book_new();
     const newSheet = XLSX.utils.json_to_sheet(value);
     XLSX.utils.book_append_sheet(newBook, newSheet, "Planilha1");
-    XLSX.writeFile(newBook, "Relatorio.xlsx");
+    XLSX.writeFile(newBook, arquivo);
 
-    XlsxPopulate.fromFileAsync("Relatorio.xlsx").then((workbook) => {
+    XlsxPopulate.fromFileAsync(arquivo).then((workbook) => {
       // Modify the workbook.
 
         workbook.sheet("Planilha1").column("D").style("fill", "C6E0B4");
@@ -61,7 +64,7 @@ const excel = (value) => {
 
 
         // Log the value.
-        return workbook.toFileAsync("Relatorio.xlsx");
+        return workbook.toFileAsync(arquivo);
     });
 
     console.log("Arquivo gerado");
